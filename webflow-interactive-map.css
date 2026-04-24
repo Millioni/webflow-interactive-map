@@ -209,7 +209,7 @@
 .im-map__legend-button:hover,
 .im-map__legend-button.is-hovered,
 .im-map__legend-button.is-active {
-  background: rgba(34, 91, 181, 0.08);
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .im-map__legend-button:focus-visible,
@@ -498,5 +498,5 @@
   .im-map__legend-line,
   .im-tooltip {
     font-size: 12px;
-  }
+  }  
 }
