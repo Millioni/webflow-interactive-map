@@ -27,6 +27,36 @@ Karten-Embed auf der Seite:
 ></div>
 ```
 
+Alternativ kann die Konfiguration direkt im Embed stehen. Dann ist kein `data-map-config-url` noetig:
+
+```html
+<div data-interactive-map data-map-id="standorte">
+  <script type="application/json" data-map-config>
+    {
+      "id": "standorte",
+      "image": "https://uploads-ssl.webflow.com/your-site/gelaendeplan.jpg",
+      "showLegend": true,
+      "legendTitle": "Standorte",
+      "tooltipMode": "onHover",
+      "zoom": {
+        "enabled": true,
+        "max": 4
+      },
+      "locations": [
+        {
+          "id": "ort-01",
+          "name": "Zutritts-/Buerogebaeude",
+          "x": 42.5,
+          "y": 61.2,
+          "markerType": "number",
+          "label": "1"
+        }
+      ]
+    }
+  </script>
+</div>
+```
+
 JavaScript vor `</body>` einbinden:
 
 ```html

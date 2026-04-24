@@ -1,18 +1,50 @@
 (() => {
-  const VERSION = "1.1.2";
+  const VERSION = "1.1.3";
   const CORE_FILE = "webflow-interactive-map.core.js";
   const ENTRY_FILE = "webflow-interactive-map.js";
+  const ROOT_SELECTOR = "[data-interactive-map][data-map-id]";
+  const INLINE_CONFIG_SELECTOR = 'script[data-map-config], script[type="application/json"]';
 
   const currentScript = document.currentScript;
   const watchedContent = new WeakSet();
   const watchedImages = new WeakSet();
+  let inlineConfigId = 0;
 
   const getCoreSrc = () => {
     if (!currentScript || !currentScript.src) return CORE_FILE;
     return currentScript.src.replace(new RegExp(`${ENTRY_FILE}(\\?.*)?$`), CORE_FILE);
   };
 
+  const normalizeInlineConfig = (root) => {
+    if (root.dataset.mapConfigScript) return;
+
+    const script = root.querySelector(INLINE_CONFIG_SELECTOR);
+    if (!script) return;
+
+    if (!script.id) {
+      inlineConfigId += 1;
+      script.id = `im-inline-map-config-${Date.now()}-${inlineConfigId}`;
+    }
+
+    try {
+      const config = JSON.parse(script.textContent);
+      if (config && !Array.isArray(config.maps) && !config.id) {
+        config.id = root.dataset.mapId;
+        script.textContent = JSON.stringify(config);
+      }
+    } catch (error) {
+      console.warn("InteractiveMaps: inline map config could not be parsed.", error);
+    }
+
+    root.dataset.mapConfigScript = script.id;
+  };
+
+  const normalizeInlineConfigs = () => {
+    document.querySelectorAll(ROOT_SELECTOR).forEach(normalizeInlineConfig);
+  };
+
   const loadCore = () => {
+    normalizeInlineConfigs();
     if (window.InteractiveMaps) return Promise.resolve();
 
     return new Promise((resolve, reject) => {
@@ -102,11 +134,17 @@
     const scheduleSync = () => requestAnimationFrame(syncAllMaps);
 
     scheduleSync();
-    document.addEventListener("DOMContentLoaded", scheduleSync);
+    document.addEventListener("DOMContentLoaded", () => {
+      normalizeInlineConfigs();
+      scheduleSync();
+    });
     window.addEventListener("load", scheduleSync);
     window.addEventListener("resize", scheduleSync);
 
-    new MutationObserver(scheduleSync).observe(document.documentElement, {
+    new MutationObserver(() => {
+      normalizeInlineConfigs();
+      scheduleSync();
+    }).observe(document.documentElement, {
       childList: true,
       subtree: true,
     });
@@ -114,6 +152,7 @@
     if (window.InteractiveMaps && typeof window.InteractiveMaps.init === "function") {
       const originalInit = window.InteractiveMaps.init;
       window.InteractiveMaps.init = async (...args) => {
+        normalizeInlineConfigs();
         const result = await originalInit(...args);
         scheduleSync();
         return result;
