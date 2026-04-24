@@ -1,0 +1,57 @@
+<!-- Webflow: in Page Settings > Before </head> -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Millioni/webflow-interactive-map@main/webflow-interactive-map.css">
+
+<!-- Webflow Embed: Karte mit Legende -->
+<div
+  data-interactive-map
+  data-map-id="standorte"
+  data-map-config-url="https://cdn.jsdelivr.net/gh/Millioni/webflow-interactive-map@main/maps-config.example.json"
+></div>
+
+<!-- Webflow Embed: Karte ohne Legende, z. B. in einem Modal -->
+<div
+  data-interactive-map
+  data-map-id="verpflegung-modal"
+  data-map-config-url="https://cdn.jsdelivr.net/gh/Millioni/webflow-interactive-map@main/maps-config.example.json"
+></div>
+
+<!-- Optional: mehrere Instanzen koennen dieselbe JSON-Datei nutzen -->
+<div
+  data-interactive-map
+  data-map-id="notfaelle"
+  data-map-config-url="https://cdn.jsdelivr.net/gh/Millioni/webflow-interactive-map@main/maps-config.example.json"
+  data-tooltip-mode="onClick"
+></div>
+
+<!-- Alternative ohne externen Fetch: JSON direkt in Webflow einbetten -->
+<script type="application/json" id="interactive-map-config">
+{
+  "maps": [
+    {
+      "id": "inline-demo",
+      "image": "https://uploads-ssl.webflow.com/your-site/gelaendeplan.jpg",
+      "showLegend": false,
+      "tooltipMode": "always",
+      "locations": [
+        {
+          "id": "demo-01",
+          "name": "Demo-Ort",
+          "x": 50,
+          "y": 50,
+          "markerType": "number",
+          "label": "1"
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<div
+  data-interactive-map
+  data-map-id="inline-demo"
+  data-map-config-script="interactive-map-config"
+></div>
+
+<!-- Webflow: in Page Settings > Before </body> -->
+<script src="https://cdn.jsdelivr.net/gh/Millioni/webflow-interactive-map@main/webflow-interactive-map.js"></script>
