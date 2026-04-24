@@ -5,6 +5,7 @@
 
   const currentScript = document.currentScript;
   const watchedContent = new WeakSet();
+  const watchedImages = new WeakSet();
 
   const getCoreSrc = () => {
     if (!currentScript || !currentScript.src) return CORE_FILE;
@@ -69,6 +70,15 @@
     });
   };
 
+  const watchImagesIn = (media) => {
+    media.querySelectorAll(".im-map__image").forEach((image) => {
+      if (watchedImages.has(image)) return;
+      watchedImages.add(image);
+      image.addEventListener("load", () => syncMarkerPositions(media));
+      if (image.complete) requestAnimationFrame(() => syncMarkerPositions(media));
+    });
+  };
+
   const watchContent = (media) => {
     const content = media.querySelector(".im-map__zoom-content");
     if (!content || watchedContent.has(content)) return;
@@ -84,6 +94,7 @@
     document.querySelectorAll(".im-map__media").forEach((media) => {
       syncMarkerPositions(media);
       watchContent(media);
+      watchImagesIn(media);
     });
   };
 
