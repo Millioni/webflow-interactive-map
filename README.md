@@ -106,7 +106,7 @@ Zoom kann pro Karte in der JSON aktiviert werden:
 }
 ```
 
-Unterstuetzt werden Plus/Minus/Reset-Buttons, Pinch-to-Zoom auf Touch-Geraeten, Drag/Pan bei aktivem Zoom und optional Mausrad-Zoom. `wheel` ist standardmaessig aus, damit normales Seitenscrollen nicht gestoert wird. Marker, Icons und Tooltips bleiben beim Zoomen optisch gleich gross; nur die Karte und das Koordinatensystem werden vergroessert.
+Unterstuetzt werden Plus/Minus/Reset-Buttons, Pinch-to-Zoom auf Touch-Geraeten, Drag/Pan bei aktivem Zoom und optional Mausrad-Zoom. `wheel` ist standardmaessig aus, damit normales Seitenscrollen nicht gestoert wird. Nur das Kartenbild wird transformiert; Marker, Icons und Tooltips bleiben in einem unskalierten Overlay und werden per Pixelposition nachgefuehrt. Dadurch bleiben sie beim Zoomen scharf und optisch gleich gross.
 
 Einzelne Werte koennen in Webflow per `data`-Attribut ueberschrieben werden:
 
