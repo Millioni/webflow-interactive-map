@@ -3,7 +3,7 @@
     {
       "id": "standorte",
       "baseType": "image",
-      "image": "https://uploads-ssl.webflow.com/your-site/gelaendeplan.jpg",
+      "image": "https://cdn.prod.website-files.com/6604371cf0c79abe0920d7c9/684053e789883b6028d24ee9_04191c1b326c1e3ebe2d6950c3ce772c_Uebersicht_KKB_Standards_und_Erwartungen_20250602.jpg",
       "imageAlt": "Gelaendeplan mit markierten Standorten",
       "showLegend": true,
       "legendTitle": "Standorte",
