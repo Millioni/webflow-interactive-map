@@ -50,8 +50,8 @@
           "y": 22.4,
           "markerType": "iconGroup",
           "icons": [
-            "https://uploads-ssl.webflow.com/your-site/icon-sammelpunkt.svg",
-            "https://uploads-ssl.webflow.com/your-site/icon-schutzraum.svg"
+            "https://upload.wikimedia.org/wikipedia/commons/5/57/ISO_7010_E007.svg",
+            "https://upload.wikimedia.org/wikipedia/commons/5/57/ISO_7010_E007.svg"
           ],
           "tooltipPosition": "top"
         },
@@ -62,7 +62,7 @@
           "x": 55.2,
           "y": 41.4,
           "markerType": "icon",
-          "icon": "https://uploads-ssl.webflow.com/your-site/icon-sanitaet.svg",
+          "icon": "https://upload.wikimedia.org/wikipedia/commons/5/57/ISO_7010_E007.svg",
           "tooltipPosition": "right"
         }
       ]
