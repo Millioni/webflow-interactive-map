@@ -1,0 +1,136 @@
+{
+  "maps": [
+    {
+      "id": "standorte",
+      "baseType": "image",
+      "image": "https://uploads-ssl.webflow.com/your-site/gelaendeplan.jpg",
+      "imageAlt": "Gelaendeplan mit markierten Standorten",
+      "showLegend": true,
+      "legendTitle": "Standorte",
+      "legendPosition": "left",
+      "tooltipMode": "onHover",
+      "locations": [
+        {
+          "id": "ort-01",
+          "name": "Zutritts-/Buerogebaeude",
+          "legendText": "Zutritts-/Buerogebaeude",
+          "x": 42.5,
+          "y": 61.2,
+          "markerType": "number",
+          "label": "1",
+          "numberStyle": "arabic",
+          "tooltipPosition": "top"
+        },
+        {
+          "id": "ort-02",
+          "name": "Personalrestaurant",
+          "legendText": "Personalrestaurant",
+          "x": 39.8,
+          "y": 67.6,
+          "markerType": "number",
+          "label": "2",
+          "numberStyle": "arabic",
+          "tooltipPosition": "bottom"
+        },
+        {
+          "id": "notfall-01",
+          "name": "Notfallsammelpunkt & Schutzraum",
+          "legendText": "Notfallsammelpunkt & Schutzraum\nRevisionskantine UG\nMehrzweckgebaeude (14)",
+          "tooltipText": "Notfallsammelpunkt & Schutzraum",
+          "x": 68.3,
+          "y": 22.4,
+          "markerType": "iconGroup",
+          "icons": [
+            "https://uploads-ssl.webflow.com/your-site/icon-sammelpunkt.svg",
+            "https://uploads-ssl.webflow.com/your-site/icon-schutzraum.svg"
+          ],
+          "tooltipPosition": "top"
+        },
+        {
+          "id": "sanitaet-01",
+          "name": "Sanitaetszimmer",
+          "legendText": "Sanitaetszimmer",
+          "x": 55.2,
+          "y": 41.4,
+          "markerType": "icon",
+          "icon": "https://uploads-ssl.webflow.com/your-site/icon-sanitaet.svg",
+          "tooltipPosition": "right"
+        }
+      ]
+    },
+    {
+      "id": "verpflegung-modal",
+      "baseType": "image",
+      "image": "https://uploads-ssl.webflow.com/your-site/gelaendeplan.jpg",
+      "imageAlt": "Kartenausschnitt Verpflegungsstationen",
+      "title": "Kartenausschnitt",
+      "showLegend": false,
+      "tooltipMode": "always",
+      "locations": [
+        {
+          "id": "kantine-ug",
+          "name": "Eingang Revisionskantine im UG des Mehrzweckgebaeudes",
+          "x": 64.8,
+          "y": 19.8,
+          "markerType": "pin",
+          "tooltipPosition": "top"
+        },
+        {
+          "id": "umkleide-block-1",
+          "name": "Eingang zu Umkleide Block 1",
+          "x": 39.2,
+          "y": 50.6,
+          "markerType": "pin",
+          "tooltipPosition": "right"
+        },
+        {
+          "id": "personalrestaurant",
+          "name": "Eingang Personalrestaurant",
+          "x": 40.5,
+          "y": 83.1,
+          "markerType": "pin",
+          "tooltipPosition": "bottom"
+        },
+        {
+          "id": "priga",
+          "name": "PRIGA",
+          "x": 64.1,
+          "y": 47.1,
+          "markerType": "pin",
+          "tooltipPosition": "top"
+        }
+      ]
+    },
+    {
+      "id": "notfaelle",
+      "baseType": "image",
+      "image": "https://uploads-ssl.webflow.com/your-site/gelaendeplan.jpg",
+      "imageAlt": "Gelaendeplan mit Notfallorten",
+      "showLegend": true,
+      "legendTitle": "Bei Notfaellen",
+      "tooltipMode": "onClick",
+      "locations": [
+        {
+          "id": "sammelpunkt-restaurant",
+          "name": "Notfallsammelungsort",
+          "legendText": "Notfallsammelungsort\nPersonalrestaurant (2)",
+          "x": 45.1,
+          "y": 74.5,
+          "markerType": "icon",
+          "icon": "https://uploads-ssl.webflow.com/your-site/icon-sammelpunkt.svg",
+          "tooltipPosition": "top"
+        },
+        {
+          "id": "schutzraum-zutritt",
+          "name": "Schutzraum",
+          "legendText": "Schutzraum\nvor Zutrittsgebaeude (1)",
+          "x": 52.6,
+          "y": 77.9,
+          "markerType": "icon",
+          "icon": "https://uploads-ssl.webflow.com/your-site/icon-schutzraum.svg",
+          "tooltipPosition": "top"
+        }
+      ]
+    }
+  ]
+}
