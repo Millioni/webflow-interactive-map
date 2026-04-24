@@ -361,7 +361,7 @@
     }
 
     handleZoomPointerDown(event) {
-      if (!this.zoom.enabled || event.target.closest(".im-map__zoom-controls")) return;
+      if (!this.zoom.enabled || event.target.closest(".im-map__zoom-controls, .im-marker")) return;
 
       this.zoomPointers.set(event.pointerId, { clientX: event.clientX, clientY: event.clientY });
 
