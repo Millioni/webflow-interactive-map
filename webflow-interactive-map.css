@@ -71,6 +71,8 @@
 }
 
 .im-map__media {
+  --im-inverse-zoom: 1;
+  --im-zoom-scale: 1;
   border-radius: var(--im-radius);
   overflow: hidden;
   position: relative;
@@ -270,7 +272,8 @@
   padding: 0;
   pointer-events: auto;
   position: absolute;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(var(--im-inverse-zoom));
+  transform-origin: center;
   z-index: 2;
 }
 
