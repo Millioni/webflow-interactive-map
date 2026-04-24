@@ -88,6 +88,39 @@ Wenn `legendText` fehlt, wird automatisch `name` in der Legende verwendet.
 - `text` - reines Textlabel
 - `pin` - Marker mit dauerhaft sichtbarem Tooltip
 
+## Zoom
+
+Zoom kann pro Karte in der JSON aktiviert werden:
+
+```json
+{
+  "zoom": {
+    "enabled": true,
+    "min": 1,
+    "max": 4,
+    "step": 0.5,
+    "controls": true,
+    "pinch": true,
+    "wheel": false
+  }
+}
+```
+
+Unterstuetzt werden Plus/Minus/Reset-Buttons, Pinch-to-Zoom auf Touch-Geraeten, Drag/Pan bei aktivem Zoom und optional Mausrad-Zoom. `wheel` ist standardmaessig aus, damit normales Seitenscrollen nicht gestoert wird.
+
+Einzelne Werte koennen in Webflow per `data`-Attribut ueberschrieben werden:
+
+```html
+<div
+  data-interactive-map
+  data-map-id="standorte"
+  data-map-config-url=".../maps-config.json"
+  data-map-zoom="true"
+  data-map-zoom-max="4"
+  data-map-zoom-wheel="false"
+></div>
+```
+
 ## OpenStreetMap
 
 Die Konfiguration unterstuetzt bereits `baseType: "osm"` als Erweiterungspunkt. Der aktuelle Code rendert dafuer einen Platzhalter; spaeter kann dort ein OSM-Adapter, zum Beispiel Leaflet, angeschlossen werden.
