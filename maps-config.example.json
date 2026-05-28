@@ -25,7 +25,7 @@
           "legendText": "Zutritts-/Buerogebaeude",
           "x": 42.5,
           "y": 61.2,
-          "markerType": "number",
+          "markerType": "text",
           "label": "1",
           "numberStyle": "arabic",
           "tooltipPosition": "top"
